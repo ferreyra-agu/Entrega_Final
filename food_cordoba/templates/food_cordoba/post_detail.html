@@ -1,0 +1,15 @@
+{% extends "food_cordoba/base.html" %}
+
+{% block main %}
+<p>
+    <br>
+    <h1>{{object.nombre}}</h1>
+    <br>
+    <img src="{{ object.imagen.url }}" width="240px" height="100%">
+    <br>
+    {{object.descripcion}}
+    <br>
+    <a href="{% url 'index' %}"> Volver</a>
+</p>
+{% endblock %}
+

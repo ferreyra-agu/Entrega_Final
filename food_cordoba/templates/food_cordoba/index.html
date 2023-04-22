@@ -1,0 +1,86 @@
+{% extends "food_cordoba/base.html" %}
+
+{% block main %}
+<main>
+
+  <div id="myCarousel" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-inner">
+      
+        {% for post in posts %}
+          {% if forloop.first %}
+            <div class="carousel-item active">
+          {% else %}
+            <div class="carousel-item">
+          {% endif %}
+              <img src="{{post.imagen.url}}">
+            <div class="container">
+              <div class="carousel-caption text-start">
+                <h1>{{post.nombre}}</h1>
+                <p>{{post.descripcion}}</p>
+                <p><a class="btn btn-lg btn-primary" href="{% url 'post-detail' post.id %}">Ver Más</a></p>
+              </div>
+            </div>
+          </div>
+        {% endfor %}
+        
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#myCarousel" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#myCarousel" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
+
+
+  <!-- Marketing messaging and featurettes
+  ================================================== -->
+  <!-- Wrap the rest of the page in another container to center all the content. -->
+
+  <div class="container marketing">
+
+    <!-- Three columns of text below the carousel -->
+    <div class="row">
+
+      {% for post in posts %}
+        <div class="col-lg-4">
+          <img src="{{post.imagen.url}}" height="144" width="144">
+          <h2>{{post.nombre}}</h2>
+          <p>{{post.descripcion}}</p>
+          <p><a class="btn btn-secondary" href="{% url 'post-detail' post.id %}">Ver Detalles »</a></p>
+        </div><!-- /.col-lg-4 -->
+      {% endfor %}
+        
+    </div><!-- /.row -->
+
+    <!-- START THE FEATURETTES -->
+   
+    <hr class="featurette-divider">
+    {% for post in posts %}
+      <div class="row featurette">
+
+        
+          <div class="col-md-7 order-md-2">
+            <h2>{{post.nombre}}</h2>
+            <p>{{post.descripcion}}</p>
+          </div>
+          <div class="col-md-5 order-md-1">
+              <img src="{{post.imagen.url}}" height="400" width="400">
+          </div>
+      </div>
+    {% endfor %}  
+
+    <!-- /END THE FEATURETTES -->INDEX.
+
+  </div><!-- /.container -->
+
+
+  <!-- FOOTER -->
+  <footer class="container">
+    <p class="float-end"><a href="https://getbootstrap.com/docs/5.0/examples/carousel/#">Back to top</a></p>
+    <p>© 2017–2021 Company, Inc. · <a href="https://getbootstrap.com/docs/5.0/examples/carousel/#">Privacy</a> · <a href="https://getbootstrap.com/docs/5.0/examples/carousel/#">Terms</a></p>
+  </footer>
+</main>
+{% endblock %}

@@ -1,0 +1,10 @@
+{% extends "food_cordoba/base.html" %}
+
+{% block main %}
+<h1>Estas seguro de querer borar este mensaje?</h1>
+<form method="POST">
+    {%csrf_token %}
+    {{form}}
+    <input type="submit" value="Borrar">
+</form>
+{% endblock %}

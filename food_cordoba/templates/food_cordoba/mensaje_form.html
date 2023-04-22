@@ -1,0 +1,10 @@
+{% extends "food_cordoba/base.html" %}
+
+{% block main %}
+<br>
+    <form method="POST">
+        {% csrf_token %}
+        {{form.as_p}}
+        <input type="submit" value="Enviar">
+    </form>
+{% endblock %}
